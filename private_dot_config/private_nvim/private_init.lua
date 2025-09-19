@@ -1,3 +1,7 @@
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 require("config.options")
@@ -19,4 +23,5 @@ require("lazy").setup({
   },
   lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json",
   change_detection = { notify = false },
+  rocks = { enabled = false, hererocks = false },
 })

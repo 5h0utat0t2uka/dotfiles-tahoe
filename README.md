@@ -66,6 +66,7 @@ git push
 chezmoi apply
 nvim --headless "+Lazy! sync" +qa
 ```
+セットアップ後はコマンドラインで一度`:checkhealth`を確認
 
 ### プラグイン追加の手順
 1. `~/.config/nvim/lua/plugins/<plugin>.lua`に追加するプラグインの設定ファイルを追加  
