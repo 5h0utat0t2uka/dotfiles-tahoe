@@ -1,0 +1,15 @@
+.ssh/**
+.gnupg/**
+.keychain/**
+
+.cache/**
+.npm/**
+.yarn/**
+
+**/*.log
+**/*.swp
+**/*.tmp
+
+.DS_Store
+.idea/**
+.vscode/**

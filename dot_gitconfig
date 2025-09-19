@@ -1,0 +1,51 @@
+[user]
+  name = shouta totsuka
+  email = 5h0utat0t2uka@gmail.com
+
+[init]
+  defaultBranch = main
+
+[push]
+  autoSetupRemote = true
+
+# [core]
+#   pager = delta
+
+# [interactive]
+#   diffFilter = delta --color-only
+
+# [delta]
+#   line-numbers = true
+#   syntax-theme = Nord
+#   hunk-header-decoration-style = none
+#   navigate = true
+
+[merge]
+  conflictstyle = zdiff3
+
+[diff]
+  tool = difftastic
+  external = difft
+
+[difftool]
+  prompt = false
+
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+  difftool = true
+
+# ghq
+[ghq]
+  user = 5h0utat0t2uka
+  root = ~/Developer/repositories
+
+[ghq "https://github.com/you-ec"]
+  root = ~/Developer/repositories
+
+[ghq "https://github.com/witomteam"]
+  root = ~/Developer/repositories
+
+[url "git@github.com:"]
+  insteadOf = https://github.com/

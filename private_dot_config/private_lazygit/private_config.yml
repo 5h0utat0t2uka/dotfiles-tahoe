@@ -1,0 +1,21 @@
+gui:
+  nerdFontsVersion: "3"
+  theme:
+    activeBorderColor:
+      - '#d8dee9'
+    inactiveBorderColor:
+      - '#4c566a'
+    optionsTextColor:
+      - '#5e81ac'
+    selectedLineBgColor:
+      - '#3b4252'
+    defaultFgColor:
+      - '#d8dee9'
+
+# git:
+#   branchLogCmd: "git log --graph --color=always --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' {{branchName}} --"
+#   paging:
+#     colorArg: always
+#     pager: delta --dark --paging=never
+#   allBranchesLogCmds:
+#     - git log --graph --color=always --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all
