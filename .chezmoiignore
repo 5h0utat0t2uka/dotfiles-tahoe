@@ -13,3 +13,6 @@
 .DS_Store
 .idea/**
 .vscode/**
+
+README.md
+LICENSE
