@@ -7,9 +7,6 @@ mkdir -p "$CACHE_DIR"
 mkdir -p "$SHELL_SESSIONS_DIR"
 
 # Instant Prompt (P10k)
-# if [[ -r "$CACHE_DIR/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "$CACHE_DIR/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -301,15 +298,3 @@ fi
     zcompile "$p10k"
   fi
 }
-# () {
-#   local zshrc="$ZDOTDIR/.zshrc"
-#   local p10k="$ZDOTDIR/.p10k.zsh"
-#   local zwc="$zshrc.zwc"
-
-#   if [[ -f "$zshrc" && ( ! -f "$zwc" || "$zshrc" -nt "$zwc" ) ]]; then
-#     zcompile "$zshrc"
-#   fi
-#   if [[ -f "$p10k" && ( ! -f "$p10k.zwc" || "$p10k" -nt "$p10k.zwc" ) ]]; then
-#     zcompile "$p10k"
-#   fi
-# }

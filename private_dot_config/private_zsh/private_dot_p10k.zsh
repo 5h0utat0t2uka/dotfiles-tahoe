@@ -794,7 +794,8 @@
   typeset -g POWERLEVEL9K_CHEZMOI_SHELL_FOREGROUND=4
   # Custom icon.
   # typeset -g POWERLEVEL9K_CHEZMOI_SHELL_VISUAL_IDENTIFIER_EXPANSION=''
-  typeset -g POWERLEVEL9K_CHEZMOI_SHELL_VISUAL_IDENTIFIER_EXPANSION=''
+  # typeset -g POWERLEVEL9K_CHEZMOI_SHELL_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_CHEZMOI_SHELL_VISUAL_IDENTIFIER_EXPANSION=''
 
   ##################################[ disk_usage: disk usage ]##################################
   # Colors for different levels of disk usage.
@@ -1665,7 +1666,8 @@
   # Custom prefix.
   # typeset -g POWERLEVEL9K_TIME_PREFIX='%F{black}at %f'
   # typeset -g POWERLEVEL9K_TIME_PREFIX='%f󱑺 '
-  typeset -g POWERLEVEL9K_TIME_PREFIX='%fat '
+  # typeset -g POWERLEVEL9K_TIME_PREFIX='%fat '
+  typeset -g POWERLEVEL9K_TIME_PREFIX='%f '
   # typeset -g POWERLEVEL9K_TIME_PREFIX=
 
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
