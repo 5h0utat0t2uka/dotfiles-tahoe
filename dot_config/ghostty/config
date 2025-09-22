@@ -68,7 +68,7 @@ adjust-underline-position = 4%
 
 cursor-style = block
 cursor-style-blink = true
-# cursor-invert-fg-bg = true
+# cursor-text = cell-background
 shell-integration-features = no-cursor
 
 window-padding-x = 10
@@ -79,6 +79,7 @@ window-colorspace = display-p3
 macos-titlebar-style = hidden
 # macos-titlebar-proxy-icon = visible
 macos-window-shadow = false
+macos-window-buttons = hidden
 macos-non-native-fullscreen = visible-menu
 macos-icon-frame = plastic
 macos-icon = retro
