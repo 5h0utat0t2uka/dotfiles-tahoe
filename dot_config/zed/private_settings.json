@@ -1,0 +1,118 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "icon_theme": "Zed (Default)",
+  "ui_font_size": 15,
+  "ui_font_family": ".ZedMono",
+  "buffer_font_family": "Source Han Code JP",
+  "buffer_font_size": 13,
+  "buffer_font_weight": 300,
+  "tab_size": 2,
+  "cursor_shape": "block",
+  "scroll_beyond_last_line": "off",
+  "scroll_sensitivity": 1.2,
+  "fast_scroll_sensitivity": 8.0,
+  "title_bar": {
+    "show_branch_icon": false,
+    "show_branch_name": true,
+    "show_project_items": true,
+    "show_onboarding_banner": true,
+    "show_user_picture": true,
+    "show_sign_in": true,
+    "show_menus": true
+  },
+  "minimap": {
+    "show": "never",
+    "thumb": "always",
+    "thumb_border": "left_open",
+    "current_line_highlight": null
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": true,
+    "agent_review": true,
+    "code_actions": true
+  },
+  "project_panel": {
+    "button": true,
+    "default_width": 240,
+    "dock": "left",
+    "entry_spacing": "standard",
+    "file_icons": true,
+    "folder_icons": true,
+    "git_status": true,
+    "indent_size": 18,
+    "auto_reveal_entries": true,
+    "auto_fold_dirs": true,
+    "drag_and_drop": true,
+    "scrollbar": {
+      "show": null
+    },
+    "sticky_scroll": false,
+    "show_diagnostics": "all",
+    "indent_guides": {
+      "show": "never"
+    },
+    "hide_root": true,
+    "starts_open": true
+  },
+  "tabs": {
+    "close_position": "right",
+    "file_icons": false,
+    "git_status": true,
+    "activate_on_close": "history",
+    "show_close_button": "hover",
+    "show_diagnostics": "errors"
+  },
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Nord-Custom"
+  },
+  "indent_guides": {
+    "enabled": true,
+    "line_width": 1,
+    "active_line_width": 1,
+    "coloring": "indent_aware",
+    "background_coloring": "disabled"
+  },
+  "terminal": {
+    // "working_directory": "always_home",
+    "cursor_shape": "block",
+    "blinking": "on",
+    "font_family": "GeistMono Nerd Font Mono",
+    "font_weight": 300,
+    "line_height": {
+      "custom": 1.3
+    },
+    "toolbar": {
+      "breadcrumbs": false
+    }
+  },
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": false
+    },
+    "branch_picker": {
+      "show_author_name": true
+    },
+    "hunk_style": "staged_hollow"
+  },
+  "languages": {
+    "Markdown": {
+      "remove_trailing_whitespace_on_save": false
+    }
+  },
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  }
+}
