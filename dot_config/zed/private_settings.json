@@ -7,6 +7,13 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
+    },
+    "model_parameters": []
+  },
   "icon_theme": "Zed (Default)",
   "ui_font_size": 15,
   "ui_font_family": ".ZedMono",
@@ -18,6 +25,13 @@
   "scroll_beyond_last_line": "off",
   "scroll_sensitivity": 1.2,
   "fast_scroll_sensitivity": 8.0,
+  "soft_wrap": "editor_width",
+  "scrollbar": {
+    "axes": {
+      "horizontal": false,
+      "vertical": true
+    }
+  },
   "title_bar": {
     "show_branch_icon": false,
     "show_branch_name": true,
@@ -42,13 +56,13 @@
   },
   "project_panel": {
     "button": true,
-    "default_width": 240,
+    "default_width": 320,
     "dock": "left",
     "entry_spacing": "standard",
     "file_icons": true,
     "folder_icons": true,
     "git_status": true,
-    "indent_size": 18,
+    "indent_size": 14,
     "auto_reveal_entries": true,
     "auto_fold_dirs": true,
     "drag_and_drop": true,
