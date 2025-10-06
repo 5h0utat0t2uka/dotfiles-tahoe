@@ -9,8 +9,9 @@
 {
   "agent": {
     "inline_assistant_model": {
-      "provider": "zed.dev",
-      "model": "claude-sonnet-4"
+      "provider": "copilot_chat",
+      "model": "gpt-4o"
+      // "model": "claude-sonnet-4"
     },
     "model_parameters": []
   },
