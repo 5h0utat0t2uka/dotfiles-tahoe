@@ -7,14 +7,14 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "agent": {
-    "inline_assistant_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4o"
-      // "model": "claude-sonnet-4"
-    },
-    "model_parameters": []
-  },
+  "disable_ai": true,
+  // "agent": {
+  //   "inline_assistant_model": {
+  //     "provider": "copilot_chat",
+  //     "model": "gpt-4o"
+  //   },
+  //   "model_parameters": []
+  // },
   "format_on_save": "off",
   "icon_theme": "Colored Zed Icons Theme Dark",
   "ui_font_size": 15,
