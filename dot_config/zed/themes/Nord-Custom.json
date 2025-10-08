@@ -7,7 +7,7 @@
       "name": "Nord-Custom",
       "appearance": "dark",
       "style": {
-        "accents": ["#4c566a", "#4c566a", "#4c566a", "#4c566a", "#4c566a"],
+        // "accents": ["#4c566a", "#4c566a", "#4c566a", "#4c566a", "#4c566a"],
         "border": "#3b4252",
         "border.variant": "#4b5262",
         "border.focused": "#3b4252",
@@ -25,7 +25,7 @@
         // "element.selected": "#6c99a6",
         "element.selected": "#434c5e",
         // "element.disabled": null,
-        "element.disabled": "#2e3440",
+        // "element.disabled": "#2e3440",
         // "drop_target.background": "#6c99a699",
         // "drop_target.background": "#6c99a699",
         "drop_target.background": "#6c99a699",
@@ -55,7 +55,9 @@
         // "search.match_background": "#88c0d033",
         //
         //
-        "search.match_background": "#3b4252",
+        // "search.match_background": "#3b4252",
+        "search.match_background": "#434c5e99",
+        // "search.match_background": "#b48ead",
         // "search.match_background": "#8fbcbb",
 
         "panel.background": "#2e3440",
@@ -85,6 +87,9 @@
         "editor.document_highlight.read_background": "#4c566a66",
         // "editor.document_highlight.write_background": "#5e81ac66",
         // "editor.document_highlight.write_background": "#eceff466",
+        "editor.document_highlight.bracket_background": "#4c566a",
+        "editor.indent_guide": "#4c566a33",
+        "editor.indent_guide_active": "#4c566a",
         "terminal.background": "#2e3440",
         "terminal.foreground": null,
         "terminal.bright_foreground": null,
@@ -160,7 +165,8 @@
           {
             "cursor": "#eceff4",
             "background": "#434c5e99",
-            "selection": "#4c566a"
+            // "selection": "#4c566a"
+            "selection": "#5e81ac99"
           },
           {
             "cursor": "#eceff4",

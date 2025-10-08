@@ -96,7 +96,8 @@
     "enabled": true,
     "line_width": 1,
     "active_line_width": 1,
-    "coloring": "indent_aware",
+    // "coloring": "indent_aware",
+    "coloring": "fixed",
     "background_coloring": "disabled"
   },
   "terminal": {
