@@ -83,7 +83,7 @@ themes {
         }
         frame_selected {
             // base 59 66 82
-            base 59 66 82
+            base 76 86 106
             background 0
             emphasis_0 208 135 112
             emphasis_1 136 192 208
@@ -91,7 +91,7 @@ themes {
             emphasis_3 0
         }
         frame_highlight {
-            base 59 66 82
+            base 76 86 106
             background 0
             emphasis_0 180 142 173
             emphasis_1 208 135 112
