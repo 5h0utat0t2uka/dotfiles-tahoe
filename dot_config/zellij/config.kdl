@@ -331,7 +331,7 @@ theme_dir "/Users/shouta/.config/zellij/themes"
 //   - true (default, enabled)
 //   - false
 //
-// pane_frames false
+pane_frames true
 
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
@@ -534,3 +534,9 @@ show_startup_tips false
 // can be useful for removing wrappers around commands
 // Note: be sure to escape backslashes and similar characters properly
 // post_command_discovery_hook "echo $RESURRECT_COMMAND | sed <your_regex_here>"
+
+ui {
+    pane_frames {
+        hide_session_name true
+    }
+}
