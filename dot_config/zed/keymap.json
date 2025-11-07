@@ -28,5 +28,11 @@
     "bindings": {
       "cmd-shift-w": "editor::WrapSelectionsInTag"
     }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "cmd-shift-c": "project_panel::CollapseAllEntries"
+    }
   }
 ]
