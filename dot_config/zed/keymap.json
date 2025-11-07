@@ -17,5 +17,16 @@
     "bindings": {
       // "j k": "vim::NormalBefore"
     }
+  },
+  {
+    "bindings": {
+      "cmd-shift-w": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-shift-w": "editor::WrapSelectionsInTag"
+    }
   }
 ]
