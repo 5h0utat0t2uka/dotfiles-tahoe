@@ -15,11 +15,11 @@
    "default_profile": "ask",
    "default_model": {
     "provider": "copilot_chat",
-    "model": "gpt-4o"
+    "model": "gpt-5-mini"
    },
    "inline_assistant_model": {
      "provider": "copilot_chat",
-     "model": "gpt-4o"
+     "model": "gpt-5-mini"
    },
    "model_parameters": []
   },
