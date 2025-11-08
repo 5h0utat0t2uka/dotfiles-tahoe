@@ -7,10 +7,6 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "journal": {
-    "path": "~",
-    "hour_format": "hour24"
-  },
   // "disable_ai": true,
   "features": {
     "edit_prediction_provider": "copilot"
