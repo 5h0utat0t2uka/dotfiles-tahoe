@@ -194,6 +194,14 @@ after_prompt_once() {
 }
 add-zsh-hook precmd after_prompt_once
 
+# tmuxステータスラインのリフレッシュ
+tmux_refresh_status() {
+  if [ ! -z $TMUX ]; then
+    tmux refresh-client -S
+  fi
+}
+add-zsh-hook precmd tmux_refresh_status
+
 fzf_history() {
   # ^+R でコマンド履歴
   zle -I
@@ -279,6 +287,11 @@ chpwd() {
   local pattern="/($(IFS='|'; echo "${IGNORE_DIRS[*]}"))"
   [[ $PWD =~ $pattern ]] && return
   command eza -al --color=never -o --time-style=long-iso -F always
+
+  # tmuxステータスラインをリフレッシュ（ディレクトリ変更時）
+  if [ ! -z $TMUX ]; then
+    tmux refresh-client -S
+  fi
 }
 
 # zsh-syntax-highlighting
