@@ -194,19 +194,11 @@ after_prompt_once() {
 }
 add-zsh-hook precmd after_prompt_once
 
-# tmuxセッションのアタッチまたは新規作成
 tm() {
+  # tmuxセッションのアタッチまたは新規作成
   local session=${1:-$(uuidgen | cut -d'-' -f1)}
   tmux new -s "$session" 2>/dev/null || tmux attach -t "$session"
 }
-
-# tmuxステータスラインのリフレッシュ
-# tmux_refresh_status() {
-#   if [ ! -z $TMUX ]; then
-#     tmux refresh-client -S
-#   fi
-# }
-# add-zsh-hook precmd tmux_refresh_status
 
 fzf_history() {
   # ^+R でコマンド履歴
@@ -288,23 +280,11 @@ fzf_ghq() {
 zle -N fzf_ghq
 bindkey '^g' fzf_ghq
 
-# typeset -g _CHPWD_FIRST_RUN=1
 chpwd() {
-  # 初回実行時はスキップ
-  # if (( _CHPWD_FIRST_RUN == 1 )); then
-  #   _CHPWD_FIRST_RUN=0
-  #   return
-  # fi
-
   [[ $PWD -ef $HOME ]] && return
   local pattern="/($(IFS='|'; echo "${IGNORE_DIRS[*]}"))"
   [[ $PWD =~ $pattern ]] && return
   command eza -al --color=never -o --time-style=long-iso -F always
-
-  # tmuxステータスラインをリフレッシュ（ディレクトリ変更時）
-  # if [ ! -z $TMUX ]; then
-  #   tmux refresh-client -S
-  # fi
 }
 
 # zsh-syntax-highlighting
