@@ -194,13 +194,19 @@ after_prompt_once() {
 }
 add-zsh-hook precmd after_prompt_once
 
-# tmuxステータスラインのリフレッシュ
-tmux_refresh_status() {
-  if [ ! -z $TMUX ]; then
-    tmux refresh-client -S
-  fi
+# tmuxセッションのアタッチまたは新規作成
+tmx() {
+  local session=${1:-$(uuidgen | cut -d'-' -f1)}
+  tmux new -s "$session" 2>/dev/null || tmux attach -t "$session"
 }
-add-zsh-hook precmd tmux_refresh_status
+
+# tmuxステータスラインのリフレッシュ
+# tmux_refresh_status() {
+#   if [ ! -z $TMUX ]; then
+#     tmux refresh-client -S
+#   fi
+# }
+# add-zsh-hook precmd tmux_refresh_status
 
 fzf_history() {
   # ^+R でコマンド履歴
