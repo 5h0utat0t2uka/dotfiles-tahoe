@@ -282,16 +282,23 @@ fzf_ghq() {
 zle -N fzf_ghq
 bindkey '^g' fzf_ghq
 
+# typeset -g _CHPWD_FIRST_RUN=1
 chpwd() {
+  # 初回実行時はスキップ
+  # if (( _CHPWD_FIRST_RUN == 1 )); then
+  #   _CHPWD_FIRST_RUN=0
+  #   return
+  # fi
+
   [[ $PWD -ef $HOME ]] && return
   local pattern="/($(IFS='|'; echo "${IGNORE_DIRS[*]}"))"
   [[ $PWD =~ $pattern ]] && return
   command eza -al --color=never -o --time-style=long-iso -F always
 
   # tmuxステータスラインをリフレッシュ（ディレクトリ変更時）
-  if [ ! -z $TMUX ]; then
-    tmux refresh-client -S
-  fi
+  # if [ ! -z $TMUX ]; then
+  #   tmux refresh-client -S
+  # fi
 }
 
 # zsh-syntax-highlighting
