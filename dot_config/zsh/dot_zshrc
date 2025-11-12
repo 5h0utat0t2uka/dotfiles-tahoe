@@ -195,7 +195,7 @@ after_prompt_once() {
 add-zsh-hook precmd after_prompt_once
 
 # tmuxセッションのアタッチまたは新規作成
-tmx() {
+tm() {
   local session=${1:-$(uuidgen | cut -d'-' -f1)}
   tmux new -s "$session" 2>/dev/null || tmux attach -t "$session"
 }
