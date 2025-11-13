@@ -23,13 +23,13 @@ else
   if [ "$percentage" -ge 80 ]; then
     bar="████"
   elif [ "$percentage" -ge 60 ]; then
-    bar="░███"
+    bar="▒███"
   elif [ "$percentage" -ge 40 ]; then
-    bar="░░██"
+    bar="▒▒██"
   elif [ "$percentage" -ge 20 ]; then
-    bar="░░░█"
+    bar="▒▒▒█"
   else
-    bar="░░░░"
+    bar="▒▒▒▒"
   fi
   output="${bar} ${percentage}%"
 fi

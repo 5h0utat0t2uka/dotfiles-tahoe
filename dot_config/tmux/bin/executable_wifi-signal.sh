@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# CACHE_FILE="/Users/shouta/.config/tmux/tmp/wifi-rssi-cache"
 CACHE_FILE="$(cd "$(dirname "$0")/.." && pwd)/tmp/wifi-rssi-cache"
 CACHE_AGE=30
 
@@ -17,7 +16,7 @@ fi
 rssi=$(sudo wdutil info 2>/dev/null | grep "RSSI" | awk '{print $3}')
 
 if [ -z "$rssi" ] || [[ "$rssi" == "<redacted>" ]]; then
-  output="░░░░"
+  output="▒▒▒▒"
 else
   rssi_num=${rssi%dBm}
   rssi_num=${rssi_num// /}
@@ -26,11 +25,11 @@ else
   if [ "$rssi_num" -ge -50 ]; then
     output="████ ${rssi_display}dBm"
   elif [ "$rssi_num" -ge -60 ]; then
-    output="░███ ${rssi_display}dBm"
+    output="▒███ ${rssi_display}dBm"
   elif [ "$rssi_num" -ge -70 ]; then
-    output="░░██ ${rssi_display}dBm"
+    output="▒▒██ ${rssi_display}dBm"
   else
-    output="░░░█ ${rssi_display}dBm"
+    output="▒▒▒█ ${rssi_display}dBm"
   fi
 fi
 
