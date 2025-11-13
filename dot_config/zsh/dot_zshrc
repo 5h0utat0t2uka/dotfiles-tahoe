@@ -11,6 +11,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+if [[ -n "$TMUX" ]]; then
+  export FZF_TMUX=1
+  export FZF_TMUX_OPTS="-p 85%,70% --margin=0,1"
+fi
 # banner
 # BANNER_FONT="DOS Rebel"
 # BANNER_TEXT="${BANNER_TEXT:-~/${HOST%%.*}}"
@@ -200,6 +204,14 @@ tm() {
   tmux new -s "$session" 2>/dev/null || tmux attach -t "$session"
 }
 
+fzf_command() {
+  if [[ -n "$TMUX" ]] && command -v fzf-tmux >/dev/null 2>&1; then
+    echo "fzf-tmux -p 85%,70%"
+  else
+    echo "fzf"
+  fi
+}
+
 fzf_history() {
   # ^+R でコマンド履歴
   zle -I
@@ -209,7 +221,7 @@ fzf_history() {
     | perl -ne 'print if !$seen{(/^\s*\d+\s+(.*)$/)[0]}++' \
     | sed 's/^[ ]*[0-9]*[ ]*//' \
     | FZF_DEFAULT_OPTS="${(j: :)FZF_BASE_OPTS} $(fzf_preview_window_opt) --prompt=❯${NBSP}" \
-    fzf --query "$LBUFFER"
+    $(fzf_command) --query "$LBUFFER"
   )
   [[ -z "$sel" ]] && { zle -R; return 0; }
   BUFFER=$sel
@@ -241,7 +253,7 @@ fzf_find() {
   local file
   file=$(
     rg --files --hidden ${rg_globs[@]} \
-    | FZF_DEFAULT_OPTS="${(j: :)FZF_BASE_OPTS} $(fzf_preview_window_opt) ${(j: :)FZF_FILE_OPTS}" fzf
+    | FZF_DEFAULT_OPTS="${(j: :)FZF_BASE_OPTS} $(fzf_preview_window_opt) ${(j: :)FZF_FILE_OPTS}" $(fzf_command)
   )
   [[ -z "$file" ]] && { zle -R; return 0; }
   BUFFER="nvim ${(q)file}"
@@ -270,7 +282,7 @@ fzf_ghq() {
           echo; \
           cat; \
         }' \
-      --preview-window=wrap" fzf
+      --preview-window=wrap" $(fzf_command)
   )
   [[ -z "$repo" ]] && { zle -R; return 0; }
   BUFFER="cd $(ghq root)/${repo}"
