@@ -21,14 +21,16 @@ if [ -z "$rssi" ] || [[ "$rssi" == "<redacted>" ]]; then
 else
   rssi_num=${rssi%dBm}
   rssi_num=${rssi_num// /}
+  rssi_display=${rssi_num#-}
+
   if [ "$rssi_num" -ge -50 ]; then
-    output="████ $rssi"
+    output="████ ${rssi_display}dBm"
   elif [ "$rssi_num" -ge -60 ]; then
-    output="███░ $rssi"
+    output="░███ ${rssi_display}dBm"
   elif [ "$rssi_num" -ge -70 ]; then
-    output="██░░ $rssi"
+    output="░░██ ${rssi_display}dBm"
   else
-    output="█░░░ $rssi"
+    output="░░░█ ${rssi_display}dBm"
   fi
 fi
 
