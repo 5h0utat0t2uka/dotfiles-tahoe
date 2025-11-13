@@ -11,10 +11,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [[ -n "$TMUX" ]]; then
-  export FZF_TMUX=1
-  export FZF_TMUX_OPTS="-p 85%,70% --margin=0,1"
-fi
 # banner
 # BANNER_FONT="DOS Rebel"
 # BANNER_TEXT="${BANNER_TEXT:-~/${HOST%%.*}}"
@@ -71,9 +67,15 @@ setopt HIST_VERIFY
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 setopt INTERACTIVE_COMMENTS
+setopt HIST_IGNORE_SPACE
 
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+if [[ -n "$TMUX" ]]; then
+  export FZF_TMUX=1
+  export FZF_TMUX_OPTS="-p 85%,70% --margin=0,1"
+fi
 
 # Completions
 typeset -U fpath
@@ -200,13 +202,15 @@ add-zsh-hook precmd after_prompt_once
 
 tm() {
   # tmuxセッションのアタッチまたは新規作成
-  local session=${1:-$(uuidgen | cut -d'-' -f1)}
+  # local session=${1:-$(uuidgen | cut -d'-' -f1)}
+  local session=${1:-$(printf %08x $RANDOM$RANDOM)}
   tmux new -s "$session" 2>/dev/null || tmux attach -t "$session"
 }
 
 fzf_command() {
   if [[ -n "$TMUX" ]] && command -v fzf-tmux >/dev/null 2>&1; then
-    echo "fzf-tmux -p 85%,70%"
+    # echo "fzf-tmux -p 85%,70%"
+    echo "fzf-tmux $FZF_TMUX_OPTS"
   else
     echo "fzf"
   fi
