@@ -18,20 +18,21 @@ percentage=$(echo "$battery_info" | grep -o '[0-9]\+%' | head -1 | tr -d '%')
 
 # バッテリー残量が取得できない場合
 if [ -z "$percentage" ]; then
-  output="N/A"
+  output=" N/A"
 else
-  if [ "$percentage" -ge 80 ]; then
-    bar="████"
-  elif [ "$percentage" -ge 60 ]; then
-    bar="▒███"
-  elif [ "$percentage" -ge 40 ]; then
-    bar="▒▒██"
-  elif [ "$percentage" -ge 20 ]; then
-    bar="▒▒▒█"
-  else
-    bar="▒▒▒▒"
-  fi
-  output="${bar} ${percentage}%"
+  # if [ "$percentage" -ge 85 ]; then
+  #   bar="█████"
+  # elif [ "$percentage" -ge 60 ]; then
+  #   bar="▒████"
+  # elif [ "$percentage" -ge 40 ]; then
+  #   bar="▒▒███"
+  # elif [ "$percentage" -ge 20 ]; then
+  #   bar="▒▒▒██"
+  # else
+  #   bar="▒▒▒▒█"
+  # fi
+  output=" ${percentage}%"
+  # output="${bar} ${percentage}%"
 fi
 
 # キャッシュに保存

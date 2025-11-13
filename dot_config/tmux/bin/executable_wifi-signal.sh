@@ -16,21 +16,24 @@ fi
 rssi=$(sudo wdutil info 2>/dev/null | grep "RSSI" | awk '{print $3}')
 
 if [ -z "$rssi" ] || [[ "$rssi" == "<redacted>" ]]; then
-  output="▒▒▒▒"
+  # output="▒▒▒▒"
+  # output="████"
+  output=" - dBm"
 else
   rssi_num=${rssi%dBm}
   rssi_num=${rssi_num// /}
   rssi_display=${rssi_num#-}
 
-  if [ "$rssi_num" -ge -50 ]; then
-    output="████ ${rssi_display}dBm"
-  elif [ "$rssi_num" -ge -60 ]; then
-    output="▒███ ${rssi_display}dBm"
-  elif [ "$rssi_num" -ge -70 ]; then
-    output="▒▒██ ${rssi_display}dBm"
-  else
-    output="▒▒▒█ ${rssi_display}dBm"
-  fi
+  # if [ "$rssi_num" -ge -50 ]; then
+  #   output=" ${rssi_display}dBm"
+  # elif [ "$rssi_num" -ge -60 ]; then
+  #   output=" ${rssi_display}dBm"
+  # elif [ "$rssi_num" -ge -70 ]; then
+  #   output=" ${rssi_display}dBm"
+  # else
+  #   output=" ${rssi_display}dBm"
+  # fi
+  output=" ${rssi_display}dBm"
 fi
 
 # キャッシュに保存
