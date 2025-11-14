@@ -74,7 +74,7 @@ export VISUAL="nvim"
 
 if [[ -n "$TMUX" ]]; then
   export FZF_TMUX=1
-  export FZF_TMUX_OPTS="-p 85%,70% --margin=0,1"
+  export FZF_TMUX_OPTS="-p 80%,70% --margin=0,1"
 fi
 
 # Completions
