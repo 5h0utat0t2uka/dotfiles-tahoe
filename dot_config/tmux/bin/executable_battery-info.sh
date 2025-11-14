@@ -1,9 +1,8 @@
 #!/bin/bash
 
 CACHE_FILE="$(cd "$(dirname "$0")/.." && pwd)/tmp/battery-cache"
-CACHE_AGE=30
+CACHE_AGE=60
 
-# キャッシュファイルが存在し、30秒以内なら使用
 if [ -f "$CACHE_FILE" ]; then
   age=$(($(date +%s) - $(stat -f %m "$CACHE_FILE" 2>/dev/null || echo 0)))
   if [ $age -lt $CACHE_AGE ]; then
