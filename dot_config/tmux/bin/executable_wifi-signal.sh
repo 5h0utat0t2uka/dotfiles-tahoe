@@ -33,7 +33,8 @@ else
   # else
   #   output=" ${rssi_display}dBm"
   # fi
-  output=" ${rssi_display}dBm"
+  # output=" ${rssi_display}dBm"
+  output="${rssi_display}dBm"
 fi
 
 # キャッシュに保存
