@@ -12,29 +12,13 @@ if [ -f "$CACHE_FILE" ]; then
   fi
 fi
 
-# 新しい値を取得
-rssi=$(sudo wdutil info 2>/dev/null | grep "RSSI" | awk '{print $3}')
+# 新しい値を取得（負の数値のみを抽出、スペースのみ削除）
+rssi=$(sudo wdutil info 2>/dev/null | grep "RSSI" | grep -oE '\-[1-9][0-9]* dBm' | head -n1 | tr -d ' ' | tr -d '-')
 
-if [ -z "$rssi" ] || [[ "$rssi" == "<redacted>" ]]; then
-  # output="▒▒▒▒"
-  # output="████"
-  output=" - dBm"
+if [ -z "$rssi" ]; then
+  output="-dBm"
 else
-  rssi_num=${rssi%dBm}
-  rssi_num=${rssi_num// /}
-  rssi_display=${rssi_num#-}
-
-  # if [ "$rssi_num" -ge -50 ]; then
-  #   output=" ${rssi_display}dBm"
-  # elif [ "$rssi_num" -ge -60 ]; then
-  #   output=" ${rssi_display}dBm"
-  # elif [ "$rssi_num" -ge -70 ]; then
-  #   output=" ${rssi_display}dBm"
-  # else
-  #   output=" ${rssi_display}dBm"
-  # fi
-  # output=" ${rssi_display}dBm"
-  output="${rssi_display}dBm"
+  output="$rssi"
 fi
 
 # キャッシュに保存
