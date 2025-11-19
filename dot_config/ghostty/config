@@ -62,9 +62,9 @@ font-feature = -liga
 font-feature = -dlig
 alpha-blending = native
 
-adjust-cell-width = 1%
-adjust-cell-height = 0%
-adjust-underline-position = 4%
+# adjust-cell-width = 1%
+# adjust-cell-height = 0%
+adjust-underline-position = 2%
 
 cursor-style = block
 cursor-style-blink = true
@@ -77,7 +77,7 @@ window-padding-balance = true
 window-colorspace = display-p3
 
 macos-titlebar-style = hidden
-# macos-titlebar-proxy-icon = visible
+macos-titlebar-proxy-icon = hidden
 macos-window-shadow = false
 macos-window-buttons = hidden
 macos-non-native-fullscreen = visible-menu
