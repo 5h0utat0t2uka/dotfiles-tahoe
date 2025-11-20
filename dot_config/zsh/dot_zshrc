@@ -295,10 +295,28 @@ fzf_ghq() {
 zle -N fzf_ghq
 bindkey '^g' fzf_ghq
 
+# chpwd() {
+#   [[ $PWD -ef $HOME ]] && return
+#   local pattern="/($(IFS='|'; echo "${IGNORE_DIRS[*]}"))"
+#   [[ $PWD =~ $pattern ]] && return
+#   command eza -al --color=never -o --time-style=long-iso -F always
+# }
+
 chpwd() {
   [[ $PWD -ef $HOME ]] && return
   local pattern="/($(IFS='|'; echo "${IGNORE_DIRS[*]}"))"
   [[ $PWD =~ $pattern ]] && return
+
+  # Gitリポジトリのルートディレクトリでのみonefetchを実行
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    local git_root=$(git rev-parse --show-toplevel 2>/dev/null)
+    if [[ "$PWD" == "$git_root" ]] && command -v onefetch &>/dev/null; then
+      onefetch --no-art --no-title --no-color-palette --disabled-fields lines-of-code authors churn
+      return
+    fi
+  fi
+
+  # それ以外はeza
   command eza -al --color=never -o --time-style=long-iso -F always
 }
 
