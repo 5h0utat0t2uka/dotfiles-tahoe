@@ -35,6 +35,9 @@
   "scroll_beyond_last_line": "off",
   "scroll_sensitivity": 1.2,
   "fast_scroll_sensitivity": 8.0,
+  "sticky_scroll": {
+    "enabled": true
+  },
   "soft_wrap": "editor_width",
   "scrollbar": {
     "axes": {
