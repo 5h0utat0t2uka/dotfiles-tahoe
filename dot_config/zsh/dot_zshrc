@@ -311,7 +311,7 @@ chpwd() {
   if git rev-parse --is-inside-work-tree &>/dev/null; then
     local git_root=$(git rev-parse --show-toplevel 2>/dev/null)
     if [[ "$PWD" == "$git_root" ]] && command -v onefetch &>/dev/null; then
-      onefetch --no-art --no-title --no-color-palette --disabled-fields lines-of-code authors churn
+      onefetch --no-art --no-title --no-color-palette --disabled-fields lines-of-code authors churn url last-change
       return
     fi
   fi
