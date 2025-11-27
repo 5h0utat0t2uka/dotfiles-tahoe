@@ -37,7 +37,7 @@
   "fast_scroll_sensitivity": 8.0,
   "show_whitespaces": "selection",
   "sticky_scroll": {
-    "enabled": true
+    "enabled": false
   },
   "soft_wrap": "editor_width",
   "scrollbar": {
