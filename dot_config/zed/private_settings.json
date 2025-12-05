@@ -32,6 +32,7 @@
   "buffer_font_weight": 300,
   "tab_size": 2,
   "cursor_shape": "block",
+  "colorize_brackets": false,
   "scroll_beyond_last_line": "off",
   "scroll_sensitivity": 1.2,
   "fast_scroll_sensitivity": 8.0,
