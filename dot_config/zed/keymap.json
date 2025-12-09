@@ -20,6 +20,12 @@
     }
   },
   {
+    "context": "Editor && edit_prediction_conflict",
+    "bindings": {
+      "alt-enter": "editor::AcceptEditPrediction" // Example of a modified keybinding
+    }
+  },
+  {
     "context": "Editor && vim_mode == insert",
     "bindings": {
       // "j k": "vim::NormalBefore"

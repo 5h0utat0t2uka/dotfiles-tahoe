@@ -9,19 +9,31 @@
 {
   // "disable_ai": true,
   "features": {
-    "edit_prediction_provider": "copilot"
+    "edit_prediction_provider": "zed"
   },
+  // "agent": {
+  //  "default_profile": "ask",
+  //  "default_model": {
+  //   "provider": "copilot_chat",
+  //   "model": "gpt-5-mini"
+  //  },
+  //  "inline_assistant_model": {
+  //    "provider": "copilot_chat",
+  //    "model": "gpt-5-mini"
+  //  },
+  //  "model_parameters": []
+  // },
   "agent": {
-   "default_profile": "ask",
-   "default_model": {
-    "provider": "copilot_chat",
-    "model": "gpt-5-mini"
-   },
-   "inline_assistant_model": {
-     "provider": "copilot_chat",
-     "model": "gpt-5-mini"
-   },
-   "model_parameters": []
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
+    },
+    "inline_alternatives": [
+      {
+        "provider": "zed.dev",
+        "model": "gpt-4-mini"
+      }
+    ]
   },
   "format_on_save": "off",
   "icon_theme": "Colored Zed Icons Theme Dark",
