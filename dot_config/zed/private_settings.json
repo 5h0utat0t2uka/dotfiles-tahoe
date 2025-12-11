@@ -7,6 +7,31 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "theme_overrides": {
+    "Nord-Custom": {
+      "players": [
+        {
+          "cursor": "#b48ead80"
+        }
+      ],
+      "syntax": {
+        "comment": {
+          "font_style": "normal"
+        },
+        "comment.doc": {
+          "font_style": "normal"
+        }
+      }
+      // "accents": [
+      //   "#b48ead",
+      //   "#a3be8c",
+      //   "#d08770",
+      //   "#5e81ac",
+      //   "#81a1c1",
+      //   "#bf616a"
+      // ]
+    }
+  },
   // "disable_ai": true,
   "features": {
     "edit_prediction_provider": "zed"
@@ -31,7 +56,7 @@
     "inline_alternatives": [
       {
         "provider": "zed.dev",
-        "model": "gpt-4-mini"
+        "model": "gpt-5-nano"
       }
     ]
   },
@@ -39,6 +64,7 @@
   "icon_theme": "Colored Zed Icons Theme Dark",
   "ui_font_size": 15,
   "ui_font_family": ".ZedMono",
+  "ui_font_weight": 300,
   "buffer_font_family": "Source Han Code JP",
   "buffer_font_size": 13,
   "buffer_font_weight": 300,

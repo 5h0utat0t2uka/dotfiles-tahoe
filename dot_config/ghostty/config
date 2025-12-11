@@ -68,6 +68,7 @@ adjust-underline-position = 2%
 
 cursor-style = block
 cursor-style-blink = true
+cursor-color = #d8dee9
 # cursor-text = cell-background
 shell-integration-features = no-cursor
 
