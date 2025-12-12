@@ -90,7 +90,7 @@
         // "editor.document_highlight.write_background": "#eceff466",
         "editor.document_highlight.bracket_background": "#4c566a",
         "editor.indent_guide": "#4c566a33",
-        "editor.indent_guide_active": "#4c566a",
+        "editor.indent_guide_active": "#4C566A99",
         "terminal.background": "#2e3440",
         "terminal.foreground": null,
         "terminal.bright_foreground": null,
