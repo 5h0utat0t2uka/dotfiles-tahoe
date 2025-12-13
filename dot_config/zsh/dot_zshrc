@@ -200,6 +200,13 @@ after_prompt_once() {
 }
 add-zsh-hook precmd after_prompt_once
 
+update_dir() {
+  if [[ -n "$TMUX" ]]; then
+    tmux refresh-client -S
+  fi
+}
+add-zsh-hook precmd update_dir
+
 tm() {
   # tmuxセッションのアタッチまたは新規作成
   local session=${1:-$(printf %08x $RANDOM$RANDOM)}
