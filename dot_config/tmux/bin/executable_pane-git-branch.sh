@@ -1,27 +1,24 @@
 #!/usr/bin/env bash
-# ~/.config/tmux/bin/pane-git-branch.sh
-
 dir="$1"
-
-# pane のカレントディレクトリへ
 cd "$dir" 2>/dev/null || exit 0
-
-# Git リポジトリでなければ何も出さない
 git rev-parse --is-inside-work-tree >/dev/null 2>&1 || exit 0
 
-# ブランチ名を取得
-branch=$(git branch --show-current 2>/dev/null)
+repo_dir_name="$(basename -- "$dir")"
 
-# detached HEAD などでブランチ名が取れない場合はショートハッシュ
+branch="$(git branch --show-current 2>/dev/null)"
 if [ -z "$branch" ] || [ "$branch" = "HEAD" ]; then
-  branch=$(git rev-parse --short HEAD 2>/dev/null || echo "")
+  branch="$(git rev-parse --short HEAD 2>/dev/null || echo "")"
 fi
-
-# それでも取れないなら何も出さない
 [ -z "$branch" ] && exit 0
+upper_branch="$(printf '%s' "$branch" | tr '[:lower:]' '[:upper:]')"
 
-# 大文字化
-upper_branch=$(printf '%s' "$branch" | tr '[:lower:]' '[:upper:]')
+# tmux.conf で定義した環境変数を取得（例: nord9="#81A1C1"）
+nord9="$(tmux show-environment -g nord9 2>/dev/null | sed 's/^nord9=//')"
+nord1="$(tmux show-environment -g nord1 2>/dev/null | sed 's/^nord1=//')"
 
-# tmux スタイル込みで出力（色は後で tmux 側で解釈される）
-printf '#[fg=$nord9]%s#[default]' "$upper_branch "
+# 取得できない場合はフォールバック（任意）
+# : "${nord9:=#81A1C1}"
+# : "${nord1:=#3B4252}"
+
+printf '#[fg=%s,bg=%s]%s %s#[default]' "$nord9" "$nord1" "  $upper_branch"
+# printf '#[fg=%s,bg=%s]%s %s#[default]' "$nord9" "$nord1" " $repo_dir_name" "[$branch] "
