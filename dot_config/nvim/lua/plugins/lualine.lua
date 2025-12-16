@@ -14,6 +14,7 @@ return {
     for mode, sections in pairs(custom) do
       if sections.c then
         sections.c.bg = colors.inactive
+        sections.c.fg = "#81a1c1"
       end
       local color = colors[mode] or colors.normal
       if sections.a then sections.a.bg = color end
@@ -24,13 +25,20 @@ return {
       options = {
         theme = custom,
         section_separators = {
-          left = "▓░",
-          right = "░▓",
+          left = "",
+          right = "",
         },
       },
       sections = {
         lualine_a = { "mode" },
-        lualine_b = { { "branch", icon = "" }, "diff" },
+        lualine_b = {},
+        --[[
+        lualine_b = {
+          { "branch", icon = "" },
+          { "diff", symbols = {added = ' ', modified = ' ', removed = ' '} },
+          { "diagnostics", symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} }
+        },
+        ]]
         lualine_c = { "filename" },
         lualine_x = {},
         lualine_y = {},

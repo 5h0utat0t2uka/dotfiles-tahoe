@@ -20,5 +20,5 @@ nord1="$(tmux show-environment -g nord1 2>/dev/null | sed 's/^nord1=//')"
 # : "${nord9:=#81A1C1}"
 # : "${nord1:=#3B4252}"
 
-printf '#[fg=%s,bg=%s]%s %s#[default]' "$nord9" "$nord1" "  $upper_branch"
+printf '#[fg=%s,bg=%s]%s %s#[default]' "$nord9" "$nord1" "  [$upper_branch]"
 # printf '#[fg=%s,bg=%s]%s %s#[default]' "$nord9" "$nord1" " $repo_dir_name" "[$branch] "

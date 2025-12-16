@@ -72,9 +72,34 @@ setopt HIST_IGNORE_SPACE
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+autoload -Uz add-zsh-hook
+
 if [[ -n "$TMUX" ]]; then
   export FZF_TMUX=1
   export FZF_TMUX_OPTS="-p 80%,70% --margin=0,1"
+
+  tmux_rename_window() {
+    local git_root name
+    git_root=$(git rev-parse --show-toplevel 2>/dev/null)
+    if [[ -n "$git_root" ]]; then
+      tmux rename-window "$(basename "$git_root")"
+      return
+    fi
+    if [[ "$PWD" == "$HOME" ]]; then
+      name="~"
+    else
+      name="$(basename "$PWD")"
+    fi
+    tmux rename-window "$name"
+  }
+
+  tmux_update_pane() {
+    tmux refresh-client -S
+  }
+
+  add-zsh-hook chpwd tmux_rename_window
+  add-zsh-hook precmd tmux_update_pane
+  tmux_rename_window
 fi
 
 # Completions
@@ -187,7 +212,7 @@ abbr -S -qq nd="npm run dev"
 abbr -S -qq nb="npm run build"
 
 # function
-autoload -Uz add-zsh-hook
+
 update_zo_opts() {
   export _ZO_FZF_OPTS="${(j: :)FZF_BASE_OPTS} $(fzf_preview_window_opt) ${(j: :)_ZO_ADDITIONAL_OPTS}"
 }
@@ -199,13 +224,6 @@ after_prompt_once() {
   add-zsh-hook -d precmd after_prompt_once
 }
 add-zsh-hook precmd after_prompt_once
-
-update_dir() {
-  if [[ -n "$TMUX" ]]; then
-    tmux refresh-client -S
-  fi
-}
-add-zsh-hook precmd update_dir
 
 tm() {
   # tmuxセッションのアタッチまたは新規作成
