@@ -15,10 +15,11 @@ upper_branch="$(printf '%s' "$branch" | tr '[:lower:]' '[:upper:]')"
 # tmux.conf で定義した環境変数を取得（例: nord9="#81A1C1"）
 nord9="$(tmux show-environment -g nord9 2>/dev/null | sed 's/^nord9=//')"
 nord1="$(tmux show-environment -g nord1 2>/dev/null | sed 's/^nord1=//')"
+nord0="$(tmux show-environment -g nord0 2>/dev/null | sed 's/^nord0=//')"
 
 # 取得できない場合はフォールバック（任意）
 # : "${nord9:=#81A1C1}"
 # : "${nord1:=#3B4252}"
 
-printf '#[fg=%s,bg=%s]%s %s#[default]' "$nord9" "$nord1" "  [$upper_branch]"
+printf '#[fg=%s,bg=%s]%s %s#[default]' "$nord9" "$nord0" " 󰊢 $branch"
 # printf '#[fg=%s,bg=%s]%s %s#[default]' "$nord9" "$nord1" " $repo_dir_name" "[$branch] "

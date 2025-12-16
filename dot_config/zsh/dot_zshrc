@@ -78,28 +78,28 @@ if [[ -n "$TMUX" ]]; then
   export FZF_TMUX=1
   export FZF_TMUX_OPTS="-p 80%,70% --margin=0,1"
 
-  tmux_rename_window() {
-    local git_root name
-    git_root=$(git rev-parse --show-toplevel 2>/dev/null)
-    if [[ -n "$git_root" ]]; then
-      tmux rename-window "$(basename "$git_root")"
-      return
-    fi
-    if [[ "$PWD" == "$HOME" ]]; then
-      name="~"
-    else
-      name="$(basename "$PWD")"
-    fi
-    tmux rename-window "$name"
-  }
+  # tmux_rename_window() {
+  #   local git_root name
+  #   git_root=$(git rev-parse --show-toplevel 2>/dev/null)
+  #   if [[ -n "$git_root" ]]; then
+  #     tmux rename-window "$(basename "$git_root")"
+  #     return
+  #   fi
+  #   if [[ "$PWD" == "$HOME" ]]; then
+  #     name="~"
+  #   else
+  #     name="$(basename "$PWD")"
+  #   fi
+  #   tmux rename-window "$name"
+  # }
 
   tmux_update_pane() {
     tmux refresh-client -S
   }
 
-  add-zsh-hook chpwd tmux_rename_window
+  # add-zsh-hook chpwd tmux_rename_window
   add-zsh-hook precmd tmux_update_pane
-  tmux_rename_window
+  # tmux_rename_window
 fi
 
 # Completions
