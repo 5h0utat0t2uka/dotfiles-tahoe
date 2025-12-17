@@ -14,11 +14,11 @@ return {
     for mode, sections in pairs(custom) do
       if sections.c then
         sections.c.bg = colors.inactive
-        sections.c.fg = "#81a1c1"
+        sections.c.fg = colors.normal
       end
       local color = colors[mode] or colors.normal
       if sections.a then sections.a.bg = color end
-      if sections.z then sections.z.bg = color end
+      -- if sections.z then sections.z.bg = color end
     end
 
     require("lualine").setup({
@@ -42,7 +42,7 @@ return {
         lualine_c = { "filename" },
         lualine_x = {},
         lualine_y = {},
-        lualine_z = { "location" },
+        lualine_z = {},
       },
     })
   end,
