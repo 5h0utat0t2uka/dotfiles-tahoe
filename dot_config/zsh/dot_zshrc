@@ -368,3 +368,6 @@ fi
     zcompile "$p10k"
   fi
 }
+
+# direnv (project-local environment switch)
+command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
