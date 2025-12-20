@@ -232,6 +232,9 @@
   "languages": {
     "Markdown": {
       "remove_trailing_whitespace_on_save": false
+    },
+    "Nix": {
+      "language_servers": ["nixd"]
     }
   },
   "telemetry": {
