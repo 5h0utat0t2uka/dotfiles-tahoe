@@ -92,14 +92,13 @@ if [[ -n "$TMUX" ]]; then
   #   fi
   #   tmux rename-window "$name"
   # }
+  # add-zsh-hook chpwd tmux_rename_window
+  # tmux_rename_window
 
   tmux_update_pane() {
     tmux refresh-client -S
   }
-
-  # add-zsh-hook chpwd tmux_rename_window
   add-zsh-hook precmd tmux_update_pane
-  # tmux_rename_window
 fi
 
 # Completions
@@ -200,7 +199,6 @@ alias ll='eza -alo --icons --time-style iso'
 alias lg='lazygit'
 
 # abbr
-# export ABBR_USER_ABBREVIATIONS_FILE="$XDG_CONFIG_HOME/zsh/abbreviations"
 export ABBR_USER_ABBREVIATIONS_FILE="$ZDOTDIR/abbreviations"
 ABBR_SET_EXPANSION_CURSOR=1
 [[ -r "$BREW_PREFIX/share/zsh-abbr/zsh-abbr.zsh" ]] && source "$BREW_PREFIX/share/zsh-abbr/zsh-abbr.zsh"
@@ -208,11 +206,11 @@ abbr -S -qq gs="git status"
 abbr -S -qq ga="git add ."
 abbr -S -qq gc="git commit -m \"%\""
 abbr -S -qq gp="git push origin HEAD"
-abbr -S -qq nd="npm run dev"
-abbr -S -qq nb="npm run build"
+abbr -S -qq nd="nr dev"
+abbr -S -qq nb="nr build"
+abbr -S -qq ns="nr start"
 
 # function
-
 update_zo_opts() {
   export _ZO_FZF_OPTS="${(j: :)FZF_BASE_OPTS} $(fzf_preview_window_opt) ${(j: :)_ZO_ADDITIONAL_OPTS}"
 }
@@ -338,15 +336,9 @@ chpwd() {
     local git_root=$(git rev-parse --show-toplevel 2>/dev/null)
     if [[ "$PWD" == "$git_root" ]] && command -v onefetch &>/dev/null; then
       onefetch --no-art --no-title --no-color-palette --disabled-fields lines-of-code authors churn url last-change
-      # onefetch --ascii-input "$(cat ~/Desktop/tmp/aa.txt)" \
-      #   --ascii-colors 9 \
-      #   --text-colors 14 7 15 12 14 7 \
-      #   --no-title --no-color-palette \
-      #   --disabled-fields lines-of-code authors churn url last-change
       return
     fi
   fi
-
   # それ以外はeza
   command eza -al --color=never -o --time-style=long-iso -F always
 }
@@ -369,5 +361,5 @@ fi
   fi
 }
 
-# direnv (project-local environment switch)
+# direnv
 command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
