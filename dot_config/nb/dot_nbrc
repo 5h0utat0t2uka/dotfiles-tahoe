@@ -1,0 +1,6 @@
+
+
+
+export NB_DIR="${NB_DIR:-/Users/shouta/Developer/repositories/github.com/5h0utat0t2uka/nb}" # Set by `nb` • Wed Dec 31 00:25:36 JST 2025
+
+export EDITOR="zed" # Set by `nb` • Wed Dec 31 00:37:04 JST 2025

@@ -6,7 +6,9 @@ home="${HOME%/}"
 p="${p%/}"
 
 if [[ -z "$p" || "$p" == "$home" ]]; then
-  printf ' ~'
+  printf '~'
 else
-  printf '%s' " ${p##*/}"
+  dir_name="${p##*/}"
+  printf '%s' "${dir_name^^}"
+  # printf '%s' " ${p##*/}"
 fi

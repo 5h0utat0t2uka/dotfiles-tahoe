@@ -8,3 +8,6 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Zsh Sessions Directory
 export SHELL_SESSIONS_DIR="$XDG_CACHE_HOME/zsh/sessions"
+
+# nb
+export NBRC_PATH="$XDG_CONFIG_HOME/nb/.nbrc"
