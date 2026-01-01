@@ -39,13 +39,13 @@
 # ghq
 [ghq]
   user = 5h0utat0t2uka
-  root = ~/Developer/repositories
+  root = ~/Development/repositories
 
 [ghq "https://github.com/you-ec"]
-  root = ~/Developer/repositories
+  root = ~/Development/repositories
 
 [ghq "https://github.com/witomteam"]
-  root = ~/Developer/repositories
+  root = ~/Development/repositories
 
 [url "git@github.com:"]
   insteadOf = https://github.com/
